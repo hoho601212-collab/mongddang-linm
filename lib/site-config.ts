@@ -6,7 +6,7 @@ export const siteConfig = {
   phoneHref: 'tel:01062893810',
   kakaoId: 'pay3810',
   kakaoUrl: 'http://qr.kakao.com/talk/i2upgpbu1am6frQeVqvvHamKNWg-',
-  domain: 'https://example.com',
+  domain: 'https://mongddang-linm.vercel.app',
   description: '린M 다이아, 충전, 아이템, 패키지와 할인 정보를 안내하는 몽땅 다이아입니다.'
 } as const;
 
