@@ -3,6 +3,7 @@ import Link from 'next/link';
 import './globals.css';
 import './seo.css';
 import { navigation, siteConfig } from '@/lib/site-config';
+import { AutoImageLoader } from '@/components/AutoImageLoader';
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ko">
       <body>
+        <AutoImageLoader />
         <header className="site-header">
           <div className="wrap header-inner">
             <Link className="brand" href="/">몽땅 다이아</Link>
