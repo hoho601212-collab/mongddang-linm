@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
 import './seo.css';
+import './logo.css';
 import { navigation, siteConfig } from '@/lib/site-config';
 import { AutoImageLoader } from '@/components/AutoImageLoader';
 
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(websiteJsonLd)}} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(organizationJsonLd)}} />
     <AutoImageLoader />
-    <header className="site-header"><div className="wrap header-inner"><Link className="brand" href="/">몽땅 다이아<small>린M: 잊혀진 유산</small></Link><nav aria-label="주요 메뉴">{navigation.slice(0,7).map(item=><Link key={item.href} href={item.href}>{item.label}</Link>)}</nav><div className="header-contact"><a href={siteConfig.phoneHref}>전화문의</a><a href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer">카카오톡</a></div></div><div className="mobile-nav" aria-label="모바일 주요 메뉴">{navigation.slice(0,7).map(item=><Link key={item.href} href={item.href}>{item.label}</Link>)}</div></header>
+    <header className="site-header"><div className="wrap header-inner"><Link className="brand-logo-link" href="/" aria-label="몽땅 다이아 홈"><img className="brand-logo-image" src="/images/mongddang-linm-logo.png" alt="몽땅 다이아 린M" /></Link><nav aria-label="주요 메뉴">{navigation.slice(0,7).map(item=><Link key={item.href} href={item.href}>{item.label}</Link>)}</nav><div className="header-contact"><a href={siteConfig.phoneHref}>전화문의</a><a href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer">카카오톡</a></div></div><div className="mobile-nav" aria-label="모바일 주요 메뉴">{navigation.slice(0,7).map(item=><Link key={item.href} href={item.href}>{item.label}</Link>)}</div></header>
     <main>{children}</main>
     <footer className="site-footer">
       <div className="wrap footer-top">
