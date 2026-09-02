@@ -14,7 +14,11 @@ export const siteConfig = {
   kakaoId: 'pay3810',
   kakaoUrl: 'http://qr.kakao.com/talk/i2upgpbu1am6frQeVqvvHamKNWg-',
   domain: 'https://mongddang-linm.vercel.app',
-  description: '린M 다이아, 충전, 아이템, 패키지와 할인 정보를 안내하는 몽땅 다이아입니다.'
+  description: '린M: 잊혀진 유산의 다이아, 충전, 아이템, 패키지와 할인 정보를 안내하는 몽땅 다이아입니다.',
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION ?? '',
+    naver: process.env.NAVER_SITE_VERIFICATION ?? ''
+  }
 } as const;
 
 export const navigation = [
