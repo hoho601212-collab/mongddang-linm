@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { pages } from '@/lib/pages';
 import { pageExtras } from '@/lib/page-extras';
 import { siteConfig } from '@/lib/site-config';
+import { seoMeta } from '@/lib/seo-meta';
 import './seo.module.css';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -21,7 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const page = pages[decodeURIComponent(slug)];
   if (!page) return {};
-  return { title: page.title, description: page.description, alternates: { canonical: `/${page.slug}` }, openGraph: { title: `${page.title} - 몽땅 다이아`, description: page.description, url: `/${page.slug}`, type: 'website' } };
+  const optimized = seoMeta[page.slug];
+  const description = optimized?.description ?? page.description;
+  return {
+    title: page.title,
+    description,
+    keywords: optimized?.keywords,
+    alternates: { canonical: `/${page.slug}` },
+    openGraph: { title: `${page.title} - 몽땅 다이아`, description, url: `/${page.slug}`, type: 'website' }
+  };
 }
 
 export default async function SeoPage({ params }: Props) {
