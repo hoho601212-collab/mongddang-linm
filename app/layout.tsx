@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
+import './seo.css';
 import { navigation, siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
