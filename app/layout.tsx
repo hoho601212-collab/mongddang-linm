@@ -5,12 +5,20 @@ import './seo.css';
 import { navigation, siteConfig } from '@/lib/site-config';
 import { AutoImageLoader } from '@/components/AutoImageLoader';
 
+const verification: Metadata['verification'] = {
+  ...(siteConfig.verification.google ? { google: siteConfig.verification.google } : {}),
+  ...(siteConfig.verification.naver ? { other: { 'naver-site-verification': siteConfig.verification.naver } } : {})
+};
+
 export const metadata: Metadata = {
   title: { default: '린M | 다이아·아이템·충전 정보 - 몽땅 다이아', template: '%s - 몽땅 다이아' },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.domain),
+  alternates: { canonical: '/' },
   robots: { index: true, follow: true },
-  openGraph: { type: 'website', locale: 'ko_KR', siteName: siteConfig.name, title: '린M | 몽땅 다이아', description: siteConfig.description }
+  verification,
+  openGraph: { type: 'website', locale: 'ko_KR', siteName: siteConfig.name, title: '린M | 몽땅 다이아', description: siteConfig.description, url: '/' },
+  twitter: { card: 'summary_large_image', title: '린M | 몽땅 다이아', description: siteConfig.description }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
