@@ -4,6 +4,7 @@ import './globals.css';
 import './seo.css';
 import './logo.css';
 import { navigation, siteConfig } from '@/lib/site-config';
+import { mainSeoMeta } from '@/lib/seo-meta';
 import { AutoImageLoader } from '@/components/AutoImageLoader';
 
 const verification: Metadata['verification'] = {
@@ -14,6 +15,7 @@ const verification: Metadata['verification'] = {
 export const metadata: Metadata = {
   title: { default: '린M | 다이아·아이템·충전 정보 - 몽땅 다이아', template: '%s - 몽땅 다이아' },
   description: siteConfig.description,
+  keywords: mainSeoMeta.keywords,
   metadataBase: new URL(siteConfig.domain),
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
