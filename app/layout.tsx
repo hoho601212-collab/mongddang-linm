@@ -12,22 +12,52 @@ const verification: Metadata['verification'] = {
   ...(siteConfig.verification.naver ? { other: { 'naver-site-verification': siteConfig.verification.naver } } : {})
 };
 
+const socialImage = {
+  url: '/images/mongddang-linm-logo.png',
+  alt: '몽땅 다이아 린M: 잊혀진 유산 정보'
+};
+
 export const metadata: Metadata = {
-  title: { default: '린M | 다이아·아이템·충전 정보 - 몽땅 다이아', template: '%s - 몽땅 다이아' },
-  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  title: { default: mainSeoMeta.title ?? '린M | 몽땅 다이아', template: '%s - 몽땅 다이아' },
+  description: mainSeoMeta.description,
   keywords: mainSeoMeta.keywords,
   metadataBase: new URL(siteConfig.domain),
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   verification,
-  openGraph: { type: 'website', locale: 'ko_KR', siteName: siteConfig.name, title: '린M | 몽땅 다이아', description: siteConfig.description, url: '/' },
-  twitter: { card: 'summary_large_image', title: '린M | 몽땅 다이아', description: siteConfig.description }
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    siteName: siteConfig.name,
+    title: mainSeoMeta.title ?? '린M | 몽땅 다이아',
+    description: mainSeoMeta.description,
+    url: '/',
+    images: [socialImage]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: mainSeoMeta.title ?? '린M | 몽땅 다이아',
+    description: mainSeoMeta.description,
+    images: [socialImage.url]
+  }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const websiteJsonLd = { '@context':'https://schema.org', '@type':'WebSite', name:siteConfig.name, url:siteConfig.domain, inLanguage:'ko-KR', description:siteConfig.description };
+  const websiteJsonLd = {
+    '@context':'https://schema.org',
+    '@type':'WebSite',
+    name:siteConfig.name,
+    url:siteConfig.domain,
+    inLanguage:'ko-KR',
+    description:mainSeoMeta.description
+  };
   const organizationJsonLd = {
-    '@context':'https://schema.org', '@type':'Organization', name:siteConfig.brand, url:siteConfig.domain,
+    '@context':'https://schema.org',
+    '@type':'Organization',
+    name:siteConfig.brand,
+    url:siteConfig.domain,
+    logo:`${siteConfig.domain}/images/mongddang-linm-logo.png`,
     address:{ '@type':'PostalAddress', streetAddress:siteConfig.address, addressCountry:'KR' },
     email:siteConfig.email,
     contactPoint:{ '@type':'ContactPoint', telephone:'+82-10-6289-3810', contactType:'customer service', availableLanguage:'Korean' }
