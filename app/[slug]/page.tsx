@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { pages } from '@/lib/pages';
 import { siteConfig } from '@/lib/site-config';
+import './seo.module.css';
 
 type Props = { params: Promise<{ slug: string }> };
 
