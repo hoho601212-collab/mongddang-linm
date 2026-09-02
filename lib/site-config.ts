@@ -16,7 +16,7 @@ export const siteConfig = {
   domain: 'https://pumasy.co.kr',
   description: '몽땅 다이아는 린M: 잊혀진 유산의 다이아 충전, 아이템, 패키지, 가격과 할인 정보를 주제별로 안내합니다. 린M 다이아 수량별 충전 가격부터 일반·귀속 다이아 사용처, 상점 상품과 구매 제한, 이벤트·업데이트까지 필요한 정보를 한곳에서 살펴보세요.',
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION ?? '',
+    google: process.env.GOOGLE_SITE_VERIFICATION ?? 'zWqlsjw-Gbd-I615Hfp8ZTsbwXLuoFQxHg7kF6gcgVI',
     naver: process.env.NAVER_SITE_VERIFICATION ?? '87d824674be1fefa4a05609389037cb23e5c9f95'
   }
 } as const;
