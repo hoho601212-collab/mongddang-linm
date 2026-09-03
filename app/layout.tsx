@@ -55,7 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const organizationJsonLd = {
     '@context':'https://schema.org',
     '@type':'Organization',
-    name:siteConfig.brand,
+    name:siteConfig.businessName,
     url:siteConfig.domain,
     logo:`${siteConfig.domain}/images/mongddang-linm-logo.png`,
     address:{ '@type':'PostalAddress', streetAddress:siteConfig.address, addressCountry:'KR' },
@@ -83,13 +83,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <div className="wrap">
           <div className="footer-section-title"><span>▣</span><h2>사업자 정보</h2></div>
           <div className="business-card-grid">
-            <div className="business-card"><span className="business-icon">상</span><div><b>상호</b><strong>{siteConfig.brand}</strong></div></div>
-            <div className="business-card"><span className="business-icon">번</span><div><b>사업자등록번호</b><strong>{siteConfig.businessNumber}</strong></div></div>
-            <div className="business-card"><span className="business-icon">책</span><div><b>개인정보관리책임자</b><strong>{siteConfig.privacyOfficer}</strong></div></div>
-            <div className="business-card"><span className="business-icon">대</span><div><b>대표</b><strong>{siteConfig.representative}</strong></div></div>
-            <div className="business-card"><span className="business-icon">통</span><div><b>통신판매업신고</b><strong>{siteConfig.mailOrderNumber}</strong></div></div>
-            <div className="business-card"><span className="business-icon">메일</span><div><b>이메일</b><a href={siteConfig.emailHref}>{siteConfig.email}</a></div></div>
+            <div className="business-card"><span className="business-icon">상</span><div><b>상호</b><strong>{siteConfig.businessName}</strong></div></div>
+            <div className="business-card"><span className="business-icon">성</span><div><b>성명</b><strong>{siteConfig.representative}</strong></div></div>
+            <div className="business-card"><span className="business-icon">번</span><div><b>사업자번호</b><strong>{siteConfig.businessNumber}</strong></div></div>
             <div className="business-card business-card-wide"><span className="business-icon">주</span><div><b>주소</b><strong>{siteConfig.address}</strong></div></div>
+            <div className="business-card"><span className="business-icon">메일</span><div><b>이메일</b><a href={siteConfig.emailHref}>{siteConfig.email}</a></div></div>
             <div className="business-card"><span className="business-icon">☎</span><div><b>전화</b><a href={siteConfig.phoneHref}>{siteConfig.phone}</a></div></div>
           </div>
 
@@ -101,4 +99,3 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </footer>
     <div className="contact-bar"><a href={siteConfig.phoneHref}>전화 상담</a><a href={siteConfig.kakaoUrl} target="_blank" rel="noreferrer">카카오톡 상담</a></div>
   </body></html>;
-}
